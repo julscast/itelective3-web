@@ -3,7 +3,7 @@
 # Patient Monitoring System
 <p align="center"><a href="https://www.addu.edu.ph"><img height="120" src="./Logos/UniversitySeal.png" alt="AdDU Logo"></a></p>
 
-> This a system that will be used to manage and monitor patients of the constituents (students, faculty, and related parties) of the **[_Ateneo de Davao University School of Nursing_](https://www.addu.edu.ph/)**. Powered by ***Laravel, Breeze-Vue*** & ***MySQL***, the monitoring system allows user accounts to manage patients and sensors, these include adding, updating, and removing of relevant information, and create reports. 
+> This a system that will be used to manage and monitor patients of the constituents (students, faculty, and related parties) of the **[_Ateneo de Davao University - School of Nursing_](https://www.addu.edu.ph/)**. This monitoring system allows user accounts to manage patients and sensors, these include adding, updating, and removing of relevant information, and create reports. Through the use of the system, faculty are able to easily monitor the progress of students during their hospital duties. The Patient Monitoring System was developed using ***Lavarel, Breeze-Vue, and MySQL***.
 
 ## Subsystem Components
 - Login/Logout
