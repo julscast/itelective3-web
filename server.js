@@ -4,13 +4,20 @@ const app = express();
 
 app.set('view engine', 'ejs')
 
-app.listen(3000);
+app.listen(3000, "localhost");
 
 app.get('/', function (req, res) {
-    res.render('index')
+    var weather = require('weather-js');
+    
+    weather.find({search: 'Pasig City, PH', degreeType: 'C'}, function(err, result) {
+    if(err) console.log(err);
+
+    console.log(JSON.stringify(result, null, 2));
+
+    res.render('pages/index');
+    });
 });
+
 app.get('/other', function (req, res) {
-    res.render('other')
+    res.render('pages/other');
 });
-
-
