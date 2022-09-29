@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.3/dist/flowbite.min.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <%- include('./partials/header'); %>
+</head>
+<body>
+
+    <div style="display:flex; justify-content:center; align-items:baseline; gap:10px;">
+        <div class = "image" style="display:inline-block; vertical-align:top;">
+            <br><br><br><br><img class="object-scale-down mx-auto h-auto" src="https://www.svgrepo.com/show/225513/philippines.svg" alt="Philippine Flag" width="50">
+        </div>
+        <div class = "main-text">    
+            <br><br><br><br><p class="font-extrabold text-xl text-center"><%= panahon[0]["location"]["name"] %><br></p>
+            <p class = "font-semibold text-sm text-center"><%= panahon[0]["location"]["lat"] %>° N<%= panahon[0]["location"]["long"] %>° E</p>
+        </div>
+    </div>
+
+    <br><br>
+    <div style="display:flex;justify-content:space-evenly;align-items:center;">
+        <div class="text-center">
+            <% if((panahon[0]['current']['skytext']).includes("Cloudy")){%>
+                <img class="object-scale-down mx-auto h-auto" src="https://www.svgrepo.com/show/276635/cloudy-cloud.svg" alt="Cloudy" width="60">
+            <% }else if((panahon[0]['current']['skytext']).includes("Rain")) {%>
+                <img class="object-scale-down mx-auto h-auto" src="https://www.svgrepo.com/show/276653/rain.svg" alt="Rain" width="60">
+            <% }else if((panahon[0]['current']['skytext']).includes("T-Storms")) {%>
+                <img class="object-scale-down mx-auto h-auto" src="https://www.svgrepo.com/show/276670/storm-thunder.svg" alt="T-Storms" width="60">
+            <% }else if((panahon[0]['current']['skytext']).includes("Snow")) {%>
+                <img class="object-scale-down mx-auto h-auto" src="https://www.svgrepo.com/show/276665/snowing-snow.svg" alt="Snow" width="60">
+            <%} else if((panahon[0]['current']['skytext']).includes("Windy")) {%>
+                <img class="object-scale-down mx-auto h-auto" src="https://www.svgrepo.com/show/276643/fog.svg" alt="Windy" width="60">
+            <%} else {%>
+                <img class="object-scale-down mx-auto h-auto" src="https://www.svgrepo.com/show/276664/cloudy-day-weather.svg" alt="Windy" width="60">
+            <% } %>
+            <p class="font-extrabold"> Today </p>
+            <p class="font-semibold"><% var date = new Date(panahon[0]['current']['date']) %><%= date.toDateString().split(' ').slice(1).join(' ');%></p>
+            <p class="font-bold"><%= panahon[0]['current']['temperature']%>° C </p>
+        </div>
+
+        <div class="text-center">
+            <% if((panahon[0]['forecast'][0]['skytextday']).includes("Cloudy")){%>
+                <img class="object-scale-down mx-auto h-auto" src="https://www.svgrepo.com/show/276635/cloudy-cloud.svg" alt="Cloudy" width="60">
+            <% }else if((panahon[0]['forecast'][0]['skytextday']).includes("Rain")) {%>
+                <img class="object-scale-down mx-auto h-auto" src="https://www.svgrepo.com/show/276653/rain.svg" alt="Rain" width="60">
+            <% }else if((panahon[0]['forecast'][0]['skytextday']).includes("T-Storms")) {%>
+                <img class="object-scale-down mx-auto h-auto" src="https://www.svgrepo.com/show/276670/storm-thunder.svg" alt="T-Storms" width="60">
+            <% }else if((panahon[0]['forecast'][0]['skytextday']).includes("Snow")) {%>
+                <img class="object-scale-down mx-auto h-auto" src="https://www.svgrepo.com/show/276665/snowing-snow.svg" alt="Snow" width="60">
+            <%} else if((panahon[0]['forecast'][0]['skytextday']).includes("Windy")) {%>
+                <img class="object-scale-down mx-auto h-auto" src="https://www.svgrepo.com/show/276643/fog.svg" alt="Windy" width="60">
+            <%} else {%>
+                <img class="object-scale-down mx-auto h-auto" src="https://www.svgrepo.com/show/276664/cloudy-day-weather.svg" alt="Windy" width="60">
+            <% } %>
+            <p class="font-extrabold"><%= panahon[0]['forecast'][0]['day']%></p>
+            <p class="font-semibold"><% var date = new Date(panahon[0]['forecast'][0]['date'])%><%= date.toDateString().split(' ').slice(1).join(' ');%></p></p>
+            <p class="font-bold"><%= panahon[0]['forecast'][0]['high']%>° C </p>
+        </div>
+
+        <div class="text-center">
+            <% if((panahon[0]['forecast'][1]['skytextday']).includes("Cloudy")){%>
+                <img class="object-scale-down mx-auto h-auto" src="https://www.svgrepo.com/show/276635/cloudy-cloud.svg" alt="Cloudy" width="60">
+            <% }else if((panahon[0]['forecast'][1]['skytextday']).includes("Rain")) {%>
+                <img class="object-scale-down mx-auto h-auto" src="https://www.svgrepo.com/show/276653/rain.svg" alt="Rain" width="60">
+            <% }else if((panahon[0]['forecast'][1]['skytextday']).includes("T-Storms")) {%>
+                <img class="object-scale-down mx-auto h-auto" src="https://www.svgrepo.com/show/276670/storm-thunder.svg" alt="T-Storms" width="60">
+            <% }else if((panahon[0]['forecast'][1]['skytextday']).includes("Snow")) {%>
+                <img class="object-scale-down mx-auto h-auto" src="https://www.svgrepo.com/show/276665/snowing-snow.svg" alt="Snow" width="60">
+            <%} else if((panahon[0]['forecast'][1]['skytextday']).includes("Windy")) {%>
+                <img class="object-scale-down mx-auto h-auto" src="https://www.svgrepo.com/show/276643/fog.svg" alt="Windy" width="60">
+            <%} else {%>
+                <img class="object-scale-down mx-auto h-auto" src="https://www.svgrepo.com/show/276664/cloudy-day-weather.svg" alt="Windy" width="60">
+            <% } %>
+            <p class="font-extrabold"><%= panahon[0]['forecast'][1]['day']%></p>
+            <p class="font-semibold"><% var date = new Date(panahon[0]['forecast'][1]['date'])%><%= date.toDateString().split(' ').slice(1).join(' ');%></p></p>
+            <p class="font-bold"><%= panahon[0]['forecast'][1]['high']%>° C </p>
+        </div>
+
+        <div class="text-center">
+            <% if((panahon[0]['forecast'][2]['skytextday']).includes("Cloudy")){%>
+                <img class="object-scale-down mx-auto h-auto" src="https://www.svgrepo.com/show/276635/cloudy-cloud.svg" alt="Cloudy" width="60">
+            <% }else if((panahon[0]['forecast'][2]['skytextday']).includes("Rain")) {%>
+                <img class="object-scale-down mx-auto h-auto" src="https://www.svgrepo.com/show/276653/rain.svg" alt="Rain" width="60">
+            <% }else if((panahon[0]['forecast'][2]['skytextday']).includes("T-Storms")) {%>
+                <img class="object-scale-down mx-auto h-auto" src="https://www.svgrepo.com/show/276670/storm-thunder.svg" alt="T-Storms" width="60">
+            <% }else if((panahon[0]['forecast'][2]['skytextday']).includes("Snow")) {%>
+                <img class="object-scale-down mx-auto h-auto" src="https://www.svgrepo.com/show/276665/snowing-snow.svg" alt="Snow" width="60">
+            <%} else if((panahon[0]['forecast'][2]['skytextday']).includes("Windy")) {%>
+                <img class="object-scale-down mx-auto h-auto" src="https://www.svgrepo.com/show/276643/fog.svg" alt="Windy" width="60">
+            <%} else {%>
+                <img class="object-scale-down mx-auto h-auto" src="https://www.svgrepo.com/show/276664/cloudy-day-weather.svg" alt="Windy" width="60">
+            <% } %>
+            <p class="font-extrabold"><%= panahon[0]['forecast'][2]['day']%></p>
+            <p class="font-semibold"><% var date = new Date(panahon[0]['forecast'][2]['date'])%><%= date.toDateString().split(' ').slice(1).join(' ');%></p></p>
+            <p class="font-bold"><%= panahon[0]['forecast'][2]['high']%>° C </p>
+        </div>
+
+        <div class="text-center">
+            <% if((panahon[0]['forecast'][3]['skytextday']).includes("Cloudy")){%>
+                <img class="object-scale-down mx-auto h-auto" src="https://www.svgrepo.com/show/276635/cloudy-cloud.svg" alt="Cloudy" width="60">
+            <% }else if((panahon[0]['forecast'][3]['skytextday']).includes("Rain")) {%>
+                <img class="object-scale-down mx-auto h-auto" src="https://www.svgrepo.com/show/276653/rain.svg" alt="Rain" width="60">
+            <% }else if((panahon[0]['forecast'][3]['skytextday']).includes("T-Storms")) {%>
+                <img class="object-scale-down mx-auto h-auto" src="https://www.svgrepo.com/show/276670/storm-thunder.svg" alt="T-Storms" width="60">
+            <% }else if((panahon[0]['forecast'][3]['skytextday']).includes("Snow")) {%>
+                <img class="object-scale-down mx-auto h-auto" src="https://www.svgrepo.com/show/276665/snowing-snow.svg" alt="Snow" width="60">
+            <%} else if((panahon[0]['forecast'][3]['skytextday']).includes("Windy")) {%>
+                <img class="object-scale-down mx-auto h-auto" src="https://www.svgrepo.com/show/276643/fog.svg" alt="Windy" width="60">
+            <%} else {%>
+                <img class="object-scale-down mx-auto h-auto" src="https://www.svgrepo.com/show/276664/cloudy-day-weather.svg" alt="Windy" width="60">
+            <% } %>
+            <p class="font-extrabold"><%= panahon[0]['forecast'][3]['day']%></p>
+            <p class="font-semibold"><% var date = new Date(panahon[0]['forecast'][3]['date'])%><%= date.toDateString().split(' ').slice(1).join(' ');%></p></p>
+            <p class="font-bold"><%= panahon[0]['forecast'][3]['high']%>° C </p>
+        </div>
+        
+        <div class="text-center">
+            <% if((panahon[0]['forecast'][4]['skytextday']).includes("Cloudy")){%>
+                <img class="object-scale-down mx-auto h-auto" src="https://www.svgrepo.com/show/276635/cloudy-cloud.svg" alt="Cloudy" width="60">
+            <% }else if((panahon[0]['forecast'][4]['skytextday']).includes("Rain")) {%>
+                <img class="object-scale-down mx-auto h-auto" src="https://www.svgrepo.com/show/276653/rain.svg" alt="Rain" width="60">
+            <% }else if((panahon[0]['forecast'][4]['skytextday']).includes("T-Storms")) {%>
+                <img class="object-scale-down mx-auto h-auto" src="https://www.svgrepo.com/show/276670/storm-thunder.svg" alt="T-Storms" width="60">
+            <% }else if((panahon[0]['forecast'][4]['skytextday']).includes("Snow")) {%>
+                <img class="object-scale-down mx-auto h-auto" src="https://www.svgrepo.com/show/276665/snowing-snow.svg" alt="Snow" width="60">
+            <%} else if((panahon[0]['forecast'][4]['skytextday']).includes("Windy")) {%>
+                <img class="object-scale-down mx-auto h-auto" src="https://www.svgrepo.com/show/276643/fog.svg" alt="Windy" width="60">
+            <%} else {%>
+                <img class="object-scale-down mx-auto h-auto" src="https://www.svgrepo.com/show/276664/cloudy-day-weather.svg" alt="Windy" width="60">
+            <% } %>
+            <p class="font-extrabold"><%= panahon[0]['forecast'][4]['day']%></p>
+            <p class="font-semibold"><% var date = new Date(panahon[0]['forecast'][4]['date'])%><%= date.toDateString().split(' ').slice(1).join(' ');%></p></p>
+            <p class="font-bold"><%= panahon[0]['forecast'][4]['high']%>° C </p>
+        </div>
+    </div>
+    <script src="../path/to/flowbite/dist/flowbite.js"></script>
+</body>
+</html>

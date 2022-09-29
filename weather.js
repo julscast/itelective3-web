@@ -1,11 +1,15 @@
-var weather = require('weather-js');
+const weather = require('weather-js');
 
 // Options:
 // search:     location name or zipcode
 // degreeType: F or C
 
-weather.find({search: 'Pasig City, PH', degreeType: 'C'}, function(err, result) {
+weather.find({search: 'Davao City, PH', degreeType: 'C'}, function(err, result) {
   if(err) console.log(err);
-
-  console.log(JSON.stringify(result, null, 2));
+  else {
+    console.log(JSON.stringify(result, null, 2));
+  }
+  
 });
+
+// module.exports = {results};

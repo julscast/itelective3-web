@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.3/dist/flowbite.min.css" />
+    <%- include('./partials/header'); %>
+</head>
+<body>
+    <br><br><br><br>
+    <a href="https://giphy.com/gifs/justin-cat-stickers-PF83OmDFWCpP80l0X3"><img src="https://media.giphy.com/media/PF83OmDFWCpP80l0X3/giphy.gif" class="object-scale-down mx-auto h-auto" width="380"></a>
+
+    <div class="p-6 m-5 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 mx-auto">
+        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400"><%= itemData.fact %></p>
+        <a href="/other" style="display:block; text-align:center;" class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-full text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
+            Click for a Cat Fact!
+        </a>
+    </div>
+    <script src="../path/to/flowbite/dist/flowbite.js"></script>
+</body>
+</html>
